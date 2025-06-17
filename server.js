@@ -43,7 +43,7 @@ app.post('/submit-request', (req, res) => {
   // 3. Compose the FULL HTML email that your team will receive.
   const mailOptions = {
     from: '"Onboard Medical Services - OBMS" <obms.medicalservices@gmail.com>',
-    to: 'abanoubemad000@gmail.com, Magedgerges064@gmail.com', // <-- IMPORTANT: Set your team's email here
+    to: 'abanoubemad000@gmail.com, Magedgerges064@gmail.com, samuelemadshawkeymegalaa@gmail.com', // <-- IMPORTANT: Set your team's email here
     subject: `URGENT: ${serviceType} Request - ${locationDescription}`,
     html: `
       <div style="font-family: Arial, sans-serif; line-height: 1.6;">
