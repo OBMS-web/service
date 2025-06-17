@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Request immediate medical assistance from OBMS. Fill out our secure form with your details and location to have our medical team dispatched to you in Luxor.">
+    <title>Request Medical Assistance - OBMS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-color: #005A9C;
+            --secondary-color: #2D9CDB;
+            --accent-color: #6FCF97;
+            --text-dark: #333333;
+            --text-light: #F4F4F4;
+            --background-color: #FFFFFF;
+            --light-gray: #F9F9F9;
+            --border-color: #DDDDDD;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: var(--light-gray);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header & Footer Styles --- */
+        .header {
+            background-color: var(--background-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+        }
+
+        /* --- Form Section Styles --- */
+        .form-section {
+            padding: 60px 0;
+        }
+
+        .form-container {
+            background-color: var(--background-color);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h1 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .form-container .subtitle {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #666;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group h3 {
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: 10px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 8px rgba(0, 90, 156, 0.2);
+        }
+
+        /* --- Button Styles --- */
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+            width: 100%;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .location-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .location-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        #locationStatus {
+            font-style: italic;
+            color: #555;
+            text-align: center;
+            padding-top: 5px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header">
+        <nav class="navbar container">
+            <a href="/" class="logo">OBMS</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <div class="container">
+                <div class="form-container">
+                    <h1>Medical Assistance Request</h1>
+                    <p class="subtitle">Please fill out this form completely. Help is on the way.</p>
+
+                    <form action="/submit-request" method="POST">
+
+                        <div class="form-group">
+                            <h3>Personal Information</h3>
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sex">Sex</label>
+                            <select id="sex" name="sex" required>
+                                <option value="" disabled selected>Please select...</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Valid Phone Number (with country code)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="e.g., +20 100 123 4567" required>
+                        </div>
+
+                        <div class="form-group">
+                            <h3>Service Required</h3>
+                            <label for="serviceType">Service Type</label>
+                            <select id="serviceType" name="serviceType" required>
+                                <option value="" disabled selected>Please choose a service...</option>
+                                <option value="On-site visit">On-site visit</option>
+                                <option value="Online doctor appointment">Online doctor appointment</option>
+                                <option value="Physical therapy session">Physical therapy session</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <h3>Medical Details</h3>
+                            <label for="symptoms">Current Symptoms</label>
+                            <textarea id="symptoms" name="symptoms" placeholder="e.g., fever, headache, stomach pain..."
+                                required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="medicalHistory">Medical History & Known Allergies</label>
+                            <textarea id="medicalHistory" name="medicalHistory"
+                                placeholder="e.g., allergic to penicillin, history of asthma..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="knownDiseases">Common Known Diseases</label>
+                            <textarea id="knownDiseases" name="knownDiseases"
+                                placeholder="e.g., Diabetes, Hypertension..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <h3>Your Location</h3>
+                            <label>Step 1: Get Your Precise Location</label>
+                            <button type="button" class="location-btn" id="getLocationBtn">Get My Current
+                                Location</button>
+                            <p id="locationStatus">Waiting for location...</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="locationDescription">Step 2: Add Location Details (Hotel, Room No.)</label>
+                            <input type="text" id="locationDescription" name="locationDescription"
+                                placeholder="e.g., Hilton Luxor, Room 402" required>
+                        </div>
+
+                        <input type="hidden" id="latitude" name="latitude" required>
+                        <input type="hidden" id="longitude" name="longitude" required>
+
+                        <div class="form-group" style="margin-top: 40px;">
+                            <button type="submit" class="btn-primary">Confirm & Request Help</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p><strong>Onboard Medical Services - OBMS</strong></p>
+            <p>Your health is our priority.</p>
+        </div>
+    </footer>
+
+    <script>
+        const getLocationBtn = document.getElementById('getLocationBtn');
+        const locationStatus = document.getElementById('locationStatus');
+        const latitudeInput = document.getElementById('latitude');
+        const longitudeInput = document.getElementById('longitude');
+
+        getLocationBtn.addEventListener('click', () => {
+            if (navigator.geolocation) {
+                locationStatus.textContent = "Requesting location permission...";
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                locationStatus.textContent = "Geolocation is not supported by this browser.";
+            }
+        });
+
+        function showPosition(position) {
+            latitudeInput.value = position.coords.latitude;
+            longitudeInput.value = position.coords.longitude;
+            locationStatus.textContent = `Location captured successfully!`;
+            locationStatus.style.color = 'green';
+            locationStatus.style.fontWeight = 'bold';
+        }
+
+        function showError(error) {
+            let message = "Could not get location. Please describe your location accurately.";
+            if (error.code == 1) { message = "Permission Denied. Please allow location access and try again."; }
+            locationStatus.textContent = message;
+            locationStatus.style.color = 'red';
+        }
+    </script>
+</body>
+
+</html>
