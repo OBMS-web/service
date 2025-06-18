@@ -229,57 +229,82 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Valid Phone Number (with country code)</label>
-                            <input type="tel" id="phone" name="phone" placeholder="e.g., +20 100 123 4567" required>
-                        </div>
+                            <label for="phone">Valid Phone Number</label>
+                            <div class="phone-input-group">
+                                <select id="country-code" name="country-code" class="country-code" required>
+                                    <option value="+20" selected>Egypt (+2)</option>
+                                    <option value="+1">USA (+1)</option>
+                                    <option value="+1">Canada (+1)</option>
+                                    <option value="+44">UK (+44)</option>
+                                    <option value="+49">Germany (+49)</option>
+                                    <option value="+33">France (+33)</option>
+                                    <option value="+39">Italy (+39)</option>
+                                    <option value="+34">Spain (+34)</option>
+                                    <option value="+971">UAE (+971)</option>
+                                    <option value="+966">Saudi Arabia (+966)</option>
+                                    <option value="+86">China (+86)</option>
+                                    <option value="+81">Japan (+81)</option>
+                                    <option value="+91">India (+91)</option>
+                                    <option value="+7">Russia (+7)</option>
+                                </select>
+                                <input type="tel" id="phone" name="phone-number" class="phone-number"
+                                    placeholder="e.g., 100 123 4567" required>
+                            </div>
 
-                        <div class="form-group">
-                            <h3>Service Required</h3>
-                            <label for="serviceType">Service Type</label>
-                            <select id="serviceType" name="serviceType" required>
-                                <option value="" disabled selected>Please choose a service...</option>
-                                <option value="On-site visit">On-site visit</option>
-                                <option value="Online doctor appointment">Online doctor appointment</option>
-                                <option value="Physical therapy session">Physical therapy session</option>
-                            </select>
-                        </div>
+                            <div class="form-group">
+                                <h3>Service Required</h3>
+                                <label for="serviceType">Service Type</label>
+                                <select id="serviceType" name="serviceType" required>
+                                    <option value="" disabled selected>Please choose a service...</option>
+                                    <option value="On-site visit">On-site visit</option>
+                                    <option value="Online doctor appointment">Online doctor appointment</option>
+                                    <option value="Physical therapy session">Physical therapy session</option>
+                                    <option value="General Check-up">General Check-up</option>
+                                    <option value="Lab Tests">Lab Tests</option>
+                                </select>
+                            </div>
 
-                        <div class="form-group">
-                            <h3>Medical Details</h3>
-                            <label for="symptoms">Current Symptoms</label>
-                            <textarea id="symptoms" name="symptoms" placeholder="e.g., fever, headache, stomach pain..."
-                                required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="medicalHistory">Medical History & Known Allergies</label>
-                            <textarea id="medicalHistory" name="medicalHistory"
-                                placeholder="e.g., allergic to penicillin, history of asthma..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="knownDiseases">Common Known Diseases</label>
-                            <textarea id="knownDiseases" name="knownDiseases"
-                                placeholder="e.g., Diabetes, Hypertension..."></textarea>
-                        </div>
+                            <div class="form-group">
+                                <h3>Medical Details</h3>
+                                <label for="symptoms">Current Symptoms</label>
+                                <textarea id="symptoms" name="symptoms"
+                                    placeholder="e.g., fever, headache, stomach pain..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="medicalHistory">Medical History & Chronic Diseases</label>
+                                <textarea id="medicalHistory" name="medicalHistory"
+                                    placeholder="e.g., diabetes, hypertension, heart diseases..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="Allergies">Allergies</label>
+                                <textarea id="Allergies" name="Allergies"
+                                    placeholder="e.g., allergic to penicillin, history of asthma..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="Surgeries">Surgeries</label>
+                                <textarea id="Surgeries" name="Surgeries"
+                                    placeholder="e.g., appendectomy, knee surgery..."></textarea>
+                            </div>
 
-                        <div class="form-group">
-                            <h3>Your Location</h3>
-                            <label>Step 1: Get Your Precise Location</label>
-                            <button type="button" class="location-btn" id="getLocationBtn">Get My Current
-                                Location</button>
-                            <p id="locationStatus">Waiting for location...</p>
-                        </div>
-                        <div class="form-group">
-                            <label for="locationDescription">Step 2: Add Location Details (Hotel, Room No.)</label>
-                            <input type="text" id="locationDescription" name="locationDescription"
-                                placeholder="e.g., Hilton Luxor, Room 402" required>
-                        </div>
+                            <div class="form-group">
+                                <h3>Your Location</h3>
+                                <label>Step 1: Get Your Precise Location</label>
+                                <button type="button" class="location-btn" id="getLocationBtn">Get My Current
+                                    Location</button>
+                                <p id="locationStatus">Waiting for location...</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="locationDescription">Step 2: Add Location Details (Hotel, Room No.)</label>
+                                <input type="text" id="locationDescription" name="locationDescription"
+                                    placeholder="e.g., Hilton Luxor, Room 402" required>
+                            </div>
 
-                        <input type="hidden" id="latitude" name="latitude" required>
-                        <input type="hidden" id="longitude" name="longitude" required>
+                            <input type="hidden" id="latitude" name="latitude" required>
+                            <input type="hidden" id="longitude" name="longitude" required>
 
-                        <div class="form-group" style="margin-top: 40px;">
-                            <button type="submit" class="btn-primary">Confirm & Request Help</button>
-                        </div>
+                            <div class="form-group" style="margin-top: 40px;">
+                                <button type="submit" class="btn-primary">Confirm & Request Help</button>
+                            </div>
                     </form>
                 </div>
             </div>
